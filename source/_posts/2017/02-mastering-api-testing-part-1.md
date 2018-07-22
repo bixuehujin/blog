@@ -48,7 +48,7 @@ $validator->defineType('User', [
     'gender' => 'string',
     'age' => '?integer',
 ]);
-``` 
+```
 
 这个 User 类型有三个属性，name、gender 和 age，其中 name 和 gender 都是 string 类型，age 为 integer 类型，但允许为 null。这里我们在类型的前面加一个 ? 表示该字段可以为 null。
 
@@ -56,7 +56,7 @@ $validator->defineType('User', [
     
 ```php    
 $validator->defineType('UserCollection', ['User']);
-```    
+```
 
 要定义一个列表类型，类型的定义必须是只有一个元素的数组，数组的第一个元素即该列表类型所允许容纳的类型。
 
@@ -73,7 +73,7 @@ $validator->defineType('timestamp', function ($value) {
 
     return checkdate($date['month'], $date['day'], $date['year']);
 });
-```    
+```
 
 ## 基本用法之验证
 
@@ -92,7 +92,6 @@ if ($matched) {
 } else {
     $errors = $validator->getErrors();
 }
-    
 ```
 
 在一些场景下，我们希望我们定义的类型与给定的数据完全匹配，不需要多余的字段，这个时候可以使用 Json Validator 的严格模式：
@@ -106,7 +105,7 @@ $data = [
 ];
 $matched = $validator->matches($data, 'User', true); // strict mode is turned on
 var_dump($matched); // false is returned
-```    
+```
 
 这个例子就会验证失败，因为 phone 字段在 User 中并没有定义。
 

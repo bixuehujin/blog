@@ -82,7 +82,7 @@ backend bk_rethinkphp
     option httpchk GET /
     server server01  172.16.1.101:7789 check
     server server02  172.16.1.102:7789 check 
-```    
+```
 
 这里我们是 backend 关键字定义了名为 bk_rethinkphp 的后端服务器组，里面包含了 server01 和 server02 两台服务器，并通过 check 参数开启了健康检查，到这里一个 HAProxy 基本配置基本完成了，server01 和 server02 会接收来自 [https://rethinkphp.com][1] 的 http 请求。
 
@@ -98,14 +98,14 @@ frontend http-in
     timeout http-keep-alive 1000
     acl is_found base,map_reg(routes.map) -m found
     use_backend %[base,map_reg(routes.map)] if is_found
-```    
+```
 
 其中 routes.map 是一个包含两列的 key value 格式文件，内容如下：  
 
-```    
+```
 docs.rethinkphp.com/.*   bk_docs
 www.rethinkphp.com/.*    bk_main
-```    
+```
 
 这样我们就可以直接在 routes.map 通过正则表达式建立 url 与具体后端服务器的对应关系，维护变得简单许多。
 
