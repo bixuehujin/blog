@@ -76,6 +76,9 @@ pagination_dir: page
 theme: cactus
 theme_config:
   colorscheme: white
+  baidu_analytics:
+    enabled: true
+    id: 6707e9292c58c1dae033dcb7f303889d
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
