@@ -76,6 +76,12 @@ pagination_dir: page
 theme: cactus
 theme_config:
   colorscheme: white
+  logo:
+    enabled: false
+  social_links:
+    github: https://github.com/bixuehujin/
+    weibo: https://weibo.com/bixuehujin
+    mail: mailto:bixuehujin@gmail.com
   baidu_analytics:
     enabled: true
     id: 6707e9292c58c1dae033dcb7f303889d
